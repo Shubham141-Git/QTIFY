@@ -14,7 +14,7 @@ const NavBar = () => {
         <Search />
         <Button children="Give Feedback" />
       </nav>
-      <Hero />
+      
     </div>
   );
 };

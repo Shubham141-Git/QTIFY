@@ -1,18 +1,37 @@
 import React from "react";
 import styles from "./Card.module.css";
-import { ReactComponent as CoverImg } from "../../assets/cardCover.svg";
+import { Chip } from "@mui/material";
 
-const Card = () => {
-  return (
-    <div className={styles.card}>
-      <div className={styles.cardContent}>
-        <CoverImg />
+const Card = ({ data, type }) => {
+  const getCard = (type) => {
+    switch (type) {
+      case "album": {
+        const { image, title, songs, follows } = data;
 
-        <span className={styles.follows}>100 Follows</span>
-      </div>
-      <span className={styles.text}>NEW BOLLYWOOD</span>
-    </div>
-  );
+        return (
+          <div className={styles.wrapper}>
+            <div className={styles.card}>
+              <img src={image} alt="albums"></img>
+              <div div className={styles.banner}>
+                <Chip
+                  className={styles.chip}
+                  label={`${follows} Follows`}
+                  size="small"
+                />
+              </div>
+            </div>
+            <div className={styles.titleWrapper}>
+              <p>{title}</p>
+            </div>
+          </div>
+        );
+      }
+      default:
+        return <></>;
+    }
+  };
+
+  return getCard(type);
 };
 
 export default Card;

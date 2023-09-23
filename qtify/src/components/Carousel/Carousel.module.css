@@ -1,0 +1,21 @@
+.wrapper {
+  position: relative;
+}
+
+.rightNavigate {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 40%;
+
+  z-index: 10;
+}
+
+.leftNavigate {
+  cursor: pointer;
+  position: absolute;
+  left: 0px;
+  top: 40%;
+
+  z-index: 10;
+}

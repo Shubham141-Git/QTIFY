@@ -4,8 +4,9 @@ import { useState } from "react";
 import { CircularProgress } from "@mui/material";
 import Card from "../card/Card";
 import Carousel from "../Carousel/Carousel";
+import BasicTabs from "../Tabs/Tabs";
 
-const Section = ({ title, data }) => {
+const Section = ({ title, data, value, handleChange }) => {
   const [carouselToggle, setCarouselToggle] = useState(true);
   const handleToggle = () => {
     setCarouselToggle(!carouselToggle);
@@ -18,7 +19,9 @@ const Section = ({ title, data }) => {
           {carouselToggle ? "Show All" : "Collapse"}
         </h4>
       </div>
-
+      {title === "Songs" ? (
+        <BasicTabs value={value} handleChange={handleChange} />
+      ) : null}
       {!data.length ? (
         <CircularProgress />
       ) : (

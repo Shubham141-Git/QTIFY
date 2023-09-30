@@ -6,7 +6,7 @@ const Card = ({ data, type }) => {
   const getCard = (type) => {
     switch (type) {
       case "album": {
-        const { image, title, songs, follows } = data;
+        const { image, title, songs, follows, likes } = data;
 
         return (
           <div className={styles.wrapper}>
@@ -15,7 +15,7 @@ const Card = ({ data, type }) => {
               <div div className={styles.banner}>
                 <Chip
                   className={styles.chip}
-                  label={`${follows} Follows`}
+                  label={likes ? `${likes} Likes` : `${follows} Follows`}
                   size="small"
                 />
               </div>
@@ -26,6 +26,7 @@ const Card = ({ data, type }) => {
           </div>
         );
       }
+
       default:
         return <></>;
     }
